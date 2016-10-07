@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="Content/main.css" rel="stylesheet" />
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+</head>
+<body ng-app="TestApp">
+    <div class="header">
+        <div class="container">
+            <span class="list-group-item"> Test Application</span>
+        </div>
+    </div>
+
+    <div class="main" ng-controller="TestController">
+        <div class="container">
+            <span class="list-group-item">Please select an unreserved time slot below:</span>
+        </div>
+        <br />
+        <br />
+        <div class="container" ng-repeat="x in slots" ng-class="$scope.slots[x].selected ? 'selected' : 'free'">
+            <span id="slot" ng-click="slotclicked($index)">Beginning time: {{ x.beginningtime }} is reserved for: {{ x.name }}  {{x.number}}</span>
+
+
+        </div>
+    </div>
+
+
+
+<div id="myModal" class="modal">
+
+<div class="modal-content">
+    <span class="close">x</span>
+    <p>Enter your name here: </p>
+    <input type="text" id="thisName">
+    <br />
+    <br />
+    <p>Enter your phone number here: </p>
+    <input type="text" id="thisPhone">
+    <br />
+    <br />
+</div>
+
+</div>
+
+<script src="app.js"> </script>
+<script src="TestController.js"> </script>
+
+    <!--
+<script>
+var modal = document.getElementById('myModal'); 
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+-->
+</script>
+</body>
+</html>
